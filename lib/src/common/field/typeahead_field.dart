@@ -1,10 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_typeahead/src/common/base/suggestions_controller.dart';
+import 'package:flutter_typeahead/src/common/base/types.dart';
+import 'package:flutter_typeahead/src/common/box/suggestions_list.dart';
 import 'package:flutter_typeahead/src/common/field/suggestions_field.dart';
 import 'package:flutter_typeahead/src/common/search/suggestions_search.dart';
-import 'package:flutter_typeahead/src/common/base/suggestions_controller.dart';
-import 'package:flutter_typeahead/src/common/box/suggestions_list.dart';
-
-import 'package:flutter_typeahead/src/common/base/types.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 
 /// {@template flutter_typeahead.RawTypeAheadField}
@@ -232,6 +232,7 @@ class _RawTypeAheadFieldState<T> extends State<RawTypeAheadField<T>> {
         listBuilder: widget.listBuilder,
       ),
       child: PointerInterceptor(
+        intercepting: !kIsWeb,
         child: widget.builder(
           context,
           controller,
